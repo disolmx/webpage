@@ -7,14 +7,14 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Link from './Link';
 import LeftMenu from './LeftMenu';
 import Hidden from '@material-ui/core/Hidden';
+
+import { formatMessage } from '../utils'
+import { menus } from '../data'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,13 +36,13 @@ export default function MenuAppBar() {
   const open = Boolean(anchorEl);
 
   const handleDrawer = event => {
-    setOpenDrawer(event.target.currentTarget);
+    setOpenDrawer(!openDrawer);
   };
 
-  const handleChange = event => {
-    setAuth(event.target.checked);
+  const closeDrawer = event => {
+    setOpenDrawer(false);
   };
-
+  
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -51,18 +51,18 @@ export default function MenuAppBar() {
     setAnchorEl(null);
   };
 
-  const urls = [
-    { title:"Home", url:"/" },
-    { title:"About", url:"/about" },
-    { title:"Events", url:"/events" },
-    { title:"Contact", url:"/contact" },
-  ]
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} onClick={handleDrawer} color="inherit" aria-label="menu">
+          <IconButton 
+            edge="start" 
+            className={classes.menuButton} 
+            onClick={handleDrawer} 
+            color="inherit" 
+            aria-label="menu"
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
@@ -70,8 +70,16 @@ export default function MenuAppBar() {
           </Typography>
 
           <Hidden only={['xs','sm']}>
-              {urls.map((x, i) => 
-                <Button key={i} color="inherit" component={Link} naked href={x.url}>{x.title}</Button>
+              {menus.map((x, i) => 
+                <Button 
+                  key={i} 
+                  color="inherit" 
+                  component={Link} 
+                  naked 
+                  href={x.url}
+                >
+                  {formatMessage(`menu.${x.name}`)}
+                </Button>
               )}
 
               <Button variant="contained">Signup</Button>
@@ -110,7 +118,7 @@ export default function MenuAppBar() {
         </Toolbar>
       </AppBar>
 
-      <LeftMenu open={openDrawer} />
+      <LeftMenu onOpen={() => {}} open={openDrawer} onClose={closeDrawer} />
     </div>
   );
 }
