@@ -1,6 +1,11 @@
 {
   "name": "disol-web",
   "version": "0.2.3",
+  "author": "Edmundo Andrade, CSL Serdán",
+  "contributors": [
+    "Miguel Medina, CSL Serdán",
+    "Fátima del Pilar, CSL Serdán"
+  ],
   "private": true,
   "dependencies": {
     "@formatjs/cli": "^1.1.20",
