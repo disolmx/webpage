@@ -23,7 +23,7 @@ export const labels = defineMessages({
     },
     "menu.home": {
         id: 'menu.home',
-        defaultMessage: 'Home1',
+        defaultMessage: 'Inicio',
     },
     "menu.contact": {
         id: 'menu.contact',
