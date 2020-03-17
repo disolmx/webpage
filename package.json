@@ -1,6 +1,6 @@
 {
   "name": "disol-web",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": "Edmundo Andrade, CSL Serdán",
   "contributors": [
     "Miguel Medina, CSL Serdán",
@@ -22,10 +22,10 @@
     "intl": "^1.2.5",
     "next": "^9.2.2",
     "next-offline": "^5.0.0",
-    "prop-types": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-intl": "^3.12.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-intl": "^4.1.1",
     "react-map-gl": "^5.2.3"
   },
   "scripts": {
