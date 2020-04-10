@@ -1,5 +1,6 @@
 import React from 'react';
 import App from 'next/app';
+import Router from 'next/router'
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -7,9 +8,13 @@ import theme from '../theme/theme';
 
 import { createIntl, createIntlCache, RawIntlProvider } from 'react-intl'
 
+import * as gtag from '../lib/gtag'
+
 // This is optional but highly recommended
 // since it prevents memory leak
 const cache = createIntlCache()
+
+Router.events.on('routeChangeComplete', url => gtag.pageview(url))
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {

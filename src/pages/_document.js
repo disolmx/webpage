@@ -2,6 +2,8 @@ import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import theme from '../theme/theme';
+import { gtag1, gtag2 } from '../services/gtag'
+import { tagManagerHead, tagManagerBody } from '../services/tagManager'
 
 export default class MyDocument extends Document {
   render() {
@@ -22,10 +24,19 @@ export default class MyDocument extends Document {
           />
           <link rel="manifest" href="/manifest.json" />
           <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
+
+          {gtag2()}
+          {gtag1()}
+
+
+          {tagManagerHead()}
         </Head>
         <body>
           <Main />
           <script src={polyfill} />
+
+          {tagManagerBody()}
+
           <script
             dangerouslySetInnerHTML={{
               __html: this.props.localeDataScript,
