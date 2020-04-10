@@ -25,6 +25,7 @@ export default class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
           <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
 
+          {gtag2()}
           {gtag1()}
           {tagManagerHead()}
         </Head>
