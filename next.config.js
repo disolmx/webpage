@@ -10,7 +10,9 @@ const nextConfig = {
     FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
     FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
     FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
-    FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID
+    FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,
+    TAG_MANAGER_ID: process.env.TAG_MANAGER_ID,
+    GA_TRACKING_ID: process.env.GA_TRACKING_ID
   },
   target: 'serverless',
   transformManifest: manifest => ['/'].concat(manifest), // add the homepage to the cache

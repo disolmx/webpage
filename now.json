@@ -20,7 +20,9 @@
       "FIREBASE_STORAGE_BUCKET": "@firebase_storage_bucket",
       "FIREBASE_MESSAGING_SENDER_ID": "@firebase_messaging_sender_id",
       "FIREBASE_APP_ID": "@firebase_app_id",
-      "FIREBASE_MEASUREMENT_ID": "@firebase_measurement_id"
+      "FIREBASE_MEASUREMENT_ID": "@firebase_measurement_id",
+      "TAG_MANAGER_ID": "@tag_manager_id",
+      "GA_TRACKING_ID": "@ga_tracking_id"
     }
   },
   "builds": [
