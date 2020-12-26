@@ -9,6 +9,7 @@
   "private": true,
   "dependencies": {
     "@babel/compat-data": "^7.12.7",
+    "@babel/preset-env": "^7.12.11",
     "@formatjs/cli": "^2.13.16",
     "@formatjs/intl-datetimeformat": "^3.2.1",
     "@formatjs/intl-getcanonicallocales": "^1.5.3",
