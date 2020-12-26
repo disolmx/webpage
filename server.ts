@@ -3,7 +3,7 @@ import {sync as globSync} from 'glob';
 import {createServer} from 'http';
 import accepts from 'accepts';
 import next from 'next';
-import {polyfill} from './polyfills';
+import {polyfill} from './src/polyfills';
 import crypto from 'crypto';
 // Get the supported languages by looking for translations in the `lang/` dir.
 const supportedLanguages = globSync('./compiled-lang/*.json').map(f =>

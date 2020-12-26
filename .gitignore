@@ -29,3 +29,7 @@ lang/.messages/
 .vercel
 
 src/compiled-lang/
+
+dist/
+
+*.swp
