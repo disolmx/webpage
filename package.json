@@ -8,6 +8,7 @@
   ],
   "private": true,
   "dependencies": {
+    "@babel/compat-data": "^7.12.7",
     "@formatjs/cli": "^2.13.16",
     "@formatjs/intl-datetimeformat": "^3.2.1",
     "@formatjs/intl-getcanonicallocales": "^1.5.3",
