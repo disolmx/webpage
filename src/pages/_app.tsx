@@ -45,6 +45,7 @@ function getMessages(locales: string | string[] = ['es']) {
     }
   }
   if (!langBundle) {
+    return ['es', import('../compiled-lang/es.json')];
   }
   return [locale, langBundle];
 }
