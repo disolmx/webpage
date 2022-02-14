@@ -5,8 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import MuiLink from '@material-ui/core/Link';
-
-import { team } from '../data/settings.json'
+import settingsData from '../data/settings'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -46,6 +45,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default () => {
+  const { team } = settingsData()
   const classes = useStyles();
 
   return(

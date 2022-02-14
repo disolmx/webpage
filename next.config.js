@@ -1,5 +1,3 @@
-const withOffline = require('next-offline');
-
 const nextConfig = {
   env: {
     MAPS_KEY: process.env.MAPS_KEY,
@@ -14,7 +12,6 @@ const nextConfig = {
     TAG_MANAGER_ID: process.env.TAG_MANAGER_ID,
     GA_TRACKING_ID: process.env.GA_TRACKING_ID
   },
-  target: 'serverless',
   transformManifest: manifest => ['/'].concat(manifest), // add the homepage to the cache
   // Trying to set NODE_ENV=production when running yarn dev causes a build-time error so we
   // turn on the SW in dev mode so that we can actually test it
@@ -39,6 +36,18 @@ const nextConfig = {
       },
     ],
   },
+  i18n: {
+    locales: ['en', 'fr', 'de'],
+    defaultLocale: 'en',
+  },
+  webpack(config, { dev, ...other }) {
+    if (!dev) {
+      // https://formatjs.io/docs/guides/advanced-usage#react-intl-without-parser-40-smaller
+      config.resolve.alias['@formatjs/icu-messageformat-parser'] =
+        '@formatjs/icu-messageformat-parser/no-parser'
+    }
+    return config
+  },
 };
 
-module.exports = withOffline(nextConfig);
+module.exports = nextConfig

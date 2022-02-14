@@ -5,8 +5,7 @@ import MuiLink from '@material-ui/core/Link';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-
-import { the_event, social } from '../data/settings.json'
+import settingsData from '../data/settings'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,6 +57,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function AppFooter() {
   const classes = useStyles();
+  const { the_event, social } = settingsData()
 
   return (
     <Typography component="footer" className={classes.root}>

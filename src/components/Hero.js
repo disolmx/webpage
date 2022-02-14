@@ -6,8 +6,8 @@ import { Link } from '../components';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import HeroLayout from './HeroLayout';
-import { home_img } from '../data/settings.json'
-import { formatMessage } from '../utils';
+import settingsData from '../data/settings'
+import { useIntl } from 'react-intl'
 
 const styles = theme => ({
   background: {
@@ -33,6 +33,8 @@ const styles = theme => ({
 });
 
 function Hero(props) {
+  const intl= useIntl()
+  const {  home_img } = settingsData()
   const { classes } = props;
 
   return (
@@ -43,7 +45,7 @@ function Hero(props) {
         <img src="/logos/logo-disol-w.png" width="100%" />
       </Container>
       <Typography align="center" variant="h6" className={classes.h5}>
-        {formatMessage("home.event_city")}
+        {intl.formatMessage({ defaultMessage:"Cd. Serdán, Puebla, México. 2 de Marzo del 2020", description:"Hero: event city" })}
       </Typography>
       <Button
         color="secondary"
@@ -53,7 +55,7 @@ function Hero(props) {
         component={Link}
         href="/schedule"
       >
-        {formatMessage("schedule.title")}
+        {intl.formatMessage({ defaultMessage:"Programa", description:"Hero: schedule title" })}
       </Button>
     </HeroLayout>
   );

@@ -12,9 +12,6 @@ import { gtag1, gtag2 } from '../services/gtag'
 import { tagManagerHead, tagManagerBody } from '../services/tagManager'
 
 interface Props {
-  locale: string;
-  lang: string;
-  nonce: string;
 }
 
 class MyDocument extends Document<Props> {
@@ -29,33 +26,16 @@ class MyDocument extends Document<Props> {
       });
 
     const initialProps = await Document.getInitialProps(ctx);
-    const locale = (req as any).locale;
     return {
       ...initialProps,
-      locale,
-      lang: locale ? locale.split('-')[0] : undefined,
-      nonce: (req as any).nonce,
       styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
     };
   }
 
   render() {
-    let scriptEl;
-    if (this.props.locale) {
-      scriptEl = (
-        <script
-          nonce={this.props.nonce}
-          dangerouslySetInnerHTML={{
-            __html: `window.LOCALE="${this.props.locale}"`,
-          }}
-        ></script>
-      );
-    }
-
     return (
-      <Html lang={this.props.lang}>
+      <Html>
         <Head>
-          {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link
             rel="stylesheet"
@@ -73,7 +53,6 @@ class MyDocument extends Document<Props> {
           {tagManagerHead()}
         </Head>
         <body>
-          {scriptEl}
           <Main />
           {tagManagerBody()}
           <NextScript />

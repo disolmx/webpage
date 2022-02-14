@@ -10,6 +10,8 @@ function Input({
     fullWidth,
     multiline,
     rows,
+    required, 
+    label,
 }) {
 
     const handleChange = event => {

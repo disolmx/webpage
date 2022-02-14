@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "incremental": true,
     "jsx": "preserve",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext", "ESNext.Intl", "ES2018.Intl"],

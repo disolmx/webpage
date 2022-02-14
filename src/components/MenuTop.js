@@ -1,4 +1,5 @@
 import React from 'react';
+import { useIntl, FormattedMessage } from 'react-intl'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -13,10 +14,7 @@ import Link from './Link';
 import LeftMenu from './LeftMenu';
 import Hidden from '@material-ui/core/Hidden';
 import { withRouter } from 'next/router'
-
-import { formatMessage } from '../utils'
-import { the_event } from '../data/settings.json'
-import { menus } from '../data'
+import settingsData from '../data/settings'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,7 +29,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function MenuTop ({ router }) {
+  const intl = useIntl()
   const classes = useStyles();
+  const { the_event } = settingsData()
 
   const [auth, setAuth] = React.useState(true);
   const [openDrawer, setOpenDrawer] = React.useState(false);
@@ -76,21 +76,22 @@ function MenuTop ({ router }) {
           </Typography>
 
           <Hidden only={['xs','sm']}>
-            {menus.map((x, i) => 
-              x.enable ? 
-                <Button 
-                  key={i} 
-                  color="inherit" 
-                  component={Link} 
-                  naked 
-                  href={x.url}
-                >
-                  {formatMessage(`menu.${x.name}`)}
-                </Button>
-              :null
-            )}
-
-            {/**<Button variant="contained">Signup</Button>**/}
+            <Button color="inherit" component={Link} naked href="/">
+              <FormattedMessage defaultMessage="Inicio" description="MenuTop: title button of: Inicio" />
+            </Button>
+            <Button color="inherit" component={Link} naked href="/about">
+              <FormattedMessage defaultMessage="Quienes somos" description="MenuTop: title button of: Quienes somos" />
+            </Button>
+            <Button color="inherit" component={Link} naked href="/schedule">
+              <FormattedMessage defaultMessage="Programa" description="MenuTop: title button of: Programa" />
+            </Button>
+            {/**
+            <Button color="inherit" component={Link} naked href="/events">
+              <FormattedMessage defaultMessage="Eventos" description="MenuTop: title button of: Eventos" />
+            </Button>**/}
+            <Button color="inherit" component={Link} naked href="/contact">
+              <FormattedMessage defaultMessage="Contacto" description="MenuTop: title button of: Contacto" />
+            </Button>
           </Hidden>
 
           {/**auth && (

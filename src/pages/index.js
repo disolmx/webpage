@@ -1,10 +1,10 @@
 import React from 'react';
+import { useIntl } from 'react-intl'
+import loadIntlMessages from '../helper/loadIntlMessages'
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Hidden  from '@material-ui/core/Hidden'
-
-import { formatMessage } from '../utils'
 import { 
   Hero, 
   Layout,
@@ -12,9 +12,19 @@ import {
   CardOfVenue 
 } from '../components'
 
+export async function getStaticProps(ctx) {
+  return {
+    props: {
+      intlMessages: await loadIntlMessages(ctx),
+    },
+  }
+}
+
 export default function Index() {
+  const intl = useIntl()
+
   return (
-    <Layout title={formatMessage("home.title")}>
+    <Layout title={intl.formatMessage({ defaultMessage:"Página oficial del Día del Software Libre (DiSoL)", description:"Index page title" })}>
       <Hero />
 
       <Hidden only="xs">
@@ -26,3 +36,4 @@ export default function Index() {
     </Layout>
   );
 }
+

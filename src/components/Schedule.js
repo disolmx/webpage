@@ -5,9 +5,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 const isBrowser = typeof(window) !== "undefined"
-
-import db from '../services/firestore'
-import { formatMessage } from '../utils'
+import { useIntl } from 'react-intl'
+import db from '../services/firebase/clientApp'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,6 +53,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Schedule(){
+  const intl = useIntl()
   const classes = useStyles();
   const [schedule, setSchedule] = useState([])
 
@@ -93,7 +93,16 @@ export default function Schedule(){
             <Card className={classes.root} elevation={2}>
               <CardContent className={classes.content}>
                 <Typography variant="h5" component="h2" className={classes.title}>
-                  {x.title}{" "}{x.type && x.type == "conference" || x.type == "workshop" ? <span className={classes.type}>{`(${formatMessage("general."+x.type)})`}</span> : ''}
+                  {x.title}{" "}{x.type && (x.type == "conference" || x.type == "workshop") ? 
+                    <>
+                      {x.type === "conference" ? 
+                        <span className={classes.type}>{`(${intl.formatMessage({ defaultMessage:"Conferencia", description:"Schedule: schedule type" })})`}</span>
+                      :null}
+                      {x.type === "workshop" ? 
+                        <span className={classes.type}>{`(${intl.formatMessage({ defaultMessage:"Workshop", description:"Schedule: schedule type" })})`}</span>
+                      :null}
+                    </>
+                  :''}
                 </Typography>
                 {x.speaker && Array.isArray(x.speaker) && x.speaker.length > 0 && x.speaker.map((y, iy) => 
                   <Typography key={iy} variant="body2" component="p">

@@ -9,8 +9,8 @@ import DirectionsIcon from '@material-ui/icons/Directions';
 import Typography from '@material-ui/core/Typography';
 import MuiLink from '@material-ui/core/Link';
 
-import { venue } from '../data/settings.json'
-import { formatMessage } from '../utils'
+import settingsData from '../data/settings'
+import { useIntl } from 'react-intl'
 
 const useStyles = makeStyles( theme => ({
   root: {
@@ -20,16 +20,18 @@ const useStyles = makeStyles( theme => ({
 }));
 
 export default function SimpleCard() {
+  const intl = useIntl()
   const classes = useStyles();
+  const { venue } = settingsData()
 
   return (
     <Card className={classes.root} elevation={7}>
       <CardContent>
         <Typography className={classes.title} variant="subtitle1" gutterBottom>
-          {formatMessage("general.place_title")}: {venue.name}
+          {intl.formatMessage({ defaultMessage:"Sede", description:"CardOfVenue: place" })}: {venue.name}
         </Typography>
         <Typography variant="body2">
-          {formatMessage("home.map.event_description")}
+          {intl.formatMessage({ defaultMessage:"El disol se realizara en las instalaciones del Instituto Tecnológico Superior de Cd. Serdán, Puebla. Se tendrá un ciclo de conferencias y talleres para los asistentes.", description:"CardOfVenue: description" })}
         </Typography>
       </CardContent>
       <CardActions>

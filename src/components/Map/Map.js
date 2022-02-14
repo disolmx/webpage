@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import ReactMapGL, { Marker, NavigationControl } from 'react-map-gl';
-import { venue } from '../../data/settings.json'
+import Map, { Marker, NavigationControl } from 'react-map-gl';
+import settingsData from '../../data/settings'
 import LocationIcon from '@material-ui/icons/LocationOn';
 import useWindowWidth from '../../utils/useWindowWidth'
 import { CardOfVenue } from '../'
@@ -9,10 +9,16 @@ const styles= {
   navigationControl: {
     position: 'absolute',
     right: 0,    
+  },
+  cardOfVenue: {
+    position: "absolute",
+    bottom: "25px",
+    maxWidth: "130px",    
   }
 }
 
-function Map(){
+function LocationMap(){
+  const { venue } = settingsData()
   const width = useWindowWidth()-15
   const [viewport, setViewport] = useState({
     latitude: venue.lat,
@@ -30,12 +36,13 @@ function Map(){
   }
 
   return(
-      <ReactMapGL
+      <Map
         mapStyle="mapbox://styles/mapbox/streets-v9"
-        mapboxApiAccessToken={process.env.MAPS_KEY}
+        mapboxAccessToken={process.env.MAPS_KEY}
         onViewportChange={setViewport}
         scrollZoom={false}
-        {...viewport}
+        initialViewState={viewport}
+        style={{ width:viewport.width, height:viewport.height }}
       >
         <Marker latitude={venue.lat} longitude={venue.lng} offsetLeft={-20} offsetTop={-10}>
           <LocationIcon fontSize="large" />
@@ -45,9 +52,11 @@ function Map(){
           <NavigationControl />
         </div>
 
-        <CardOfVenue />
-      </ReactMapGL>
+        <div className="card-of-venue-cls" style={styles.cardOfVenue}>
+          <CardOfVenue />
+        </div>
+      </Map>
   )
 }
 
-export default Map
+export default LocationMap
