@@ -1,21 +1,86 @@
 {
-  "home.title": "Página oficial del Día del Software Libre (DiSoL)",
-  "contact.title": "Contacto",
-  "about.title": "Quienes somos",
-  "schedule.title": "Programa",
-  "events.title": "Eventos",
-  "menu.home": "Inicio",
-  "menu.contact": "Contacto",
-  "menu.about": "Acerca de",
-  "menu.schedule": "Programa",
-  "menu.events": "Eventos",
-
-  "general.send": "Enviar",
-
-  "home.event_city:": "Cd. Serdán, Puebla, México. 2 de Marzo del 2020",
-  "home.event_name": "Día del Software Libre",
-  "general.place_title": "Sede",
-  "home.map.event_description": "El disol se realizara en las instalaciones del Instituto Tecnológico Superior de Cd. Serdán, Puebla. Se tendrá un ciclo de conferencias y talleres para los asistentes.",
-  "general.conference": "Conferencia",
-  "general.workshop": "Taller"
+  "/tNXqC": {
+    "defaultMessage": "Workshop",
+    "description": "Schedule: schedule type"
+  },
+  "0tNVCh": {
+    "defaultMessage": "Página oficial del Día del Software Libre (DiSoL)",
+    "description": "Index page title"
+  },
+  "1QoqL9": {
+    "defaultMessage": "Eventos",
+    "description": "leftMenu: title of events"
+  },
+  "4qIMYb": {
+    "defaultMessage": "Inicio",
+    "description": "MenuTop: title button of: Inicio"
+  },
+  "5eLVxL": {
+    "defaultMessage": "Contacto",
+    "description": "Contact title"
+  },
+  "5eqN3o": {
+    "defaultMessage": "Quienes somos",
+    "description": "MenuTop: title button of: Quienes somos"
+  },
+  "9stN+n": {
+    "defaultMessage": "Contacto",
+    "description": "MenuTop: title button of: Contacto"
+  },
+  "Dfln22": {
+    "defaultMessage": "Conferencia",
+    "description": "Schedule: schedule type"
+  },
+  "Dibp30": {
+    "defaultMessage": "Página oficial del Día del Software Libre (DiSoL)",
+    "description": "Layout title"
+  },
+  "EVJLL5": {
+    "defaultMessage": "El disol se realizara en las instalaciones del Instituto Tecnológico Superior de Cd. Serdán, Puebla. Se tendrá un ciclo de conferencias y talleres para los asistentes.",
+    "description": "CardOfVenue: description"
+  },
+  "FdE9lp": {
+    "defaultMessage": "Quienes somos",
+    "description": "leftMenu: title of about"
+  },
+  "HBdiep": {
+    "defaultMessage": "Sede",
+    "description": "CardOfVenue: place"
+  },
+  "MJLg0D": {
+    "defaultMessage": "Cd. Serdán, Puebla, México. 2 de Marzo del 2020",
+    "description": "Hero: event city"
+  },
+  "MV1pl0": {
+    "defaultMessage": "Enviar",
+    "description": "Contact send title"
+  },
+  "Rn+tyZ": {
+    "defaultMessage": "Programa",
+    "description": "Schedule page title"
+  },
+  "hS5yE2": {
+    "defaultMessage": "Programa",
+    "description": "MenuTop: title button of: Programa"
+  },
+  "jAubw3": {
+    "defaultMessage": "Eventos",
+    "description": "Events title"
+  },
+  "o2N1Mf": {
+    "defaultMessage": "Programa",
+    "description": "Hero: schedule title"
+  },
+  "oJI8Im": {
+    "defaultMessage": "Inicio",
+    "description": "leftMenu: title of inicio"
+  },
+  "pHeLqY": {
+    "defaultMessage": "Programa",
+    "description": "leftMenu: title of schedule"
+  },
+  "tGbF5u": {
+    "defaultMessage": "Contacto",
+    "description": "leftMenu: title of contact"
+  }
 }

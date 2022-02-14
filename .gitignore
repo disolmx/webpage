@@ -33,3 +33,5 @@ src/compiled-lang/
 dist/
 
 *.swp
+
+out/

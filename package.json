@@ -7,6 +7,16 @@
     "Fátima del Pilar, CSL Serdán"
   ],
   "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "npm run i18n:compile",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start",
+    "lint": "next lint",
+    "i18n:extract": "formatjs extract 'src/pages/**/*.js*' 'src/components/**/*.js*' --out-file src/lang/es.json",
+    "i18n:compile": "formatjs compile-folder src/lang src/compiled-lang"
+  },
   "dependencies": {
     "@babel/compat-data": "^7.12.7",
     "@babel/preset-env": "^7.12.11",
@@ -35,14 +45,6 @@
     "react-dom": "^17.0.1",
     "react-intl": "^5.10.9",
     "react-map-gl": "^7.0.6"
-  },
-  "scripts": {
-    "dev": "next dev",
-    "build": "npm run extract:i18n && npm run compile:i18n && next build && tsc -p tsconfig.server.json",
-    "extract:i18n": "formatjs extract '{pages,components}/*.{js,ts,tsx}' --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]' --out-file src/lang/es.json",
-    "compile:i18n": "formatjs compile-folder --ast --format simple src/lang/ src/compiled-lang/",
-    "start": "cross-env NODE_ENV=production NODE_ICU_DATA=node_modules/full-icu node dist/server",
-    "start-no-custom-server": "next start"
   },
   "prettier": {
     "singleQuote": true,
