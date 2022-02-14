@@ -54,14 +54,14 @@ function LeftMenu(props) {
           <ListItemIcon>{<Icon>{"event"}</Icon>}</ListItemIcon>
           <ListItemText primary={<FormattedMessage defaultMessage="Programa" description="leftMenu: title of schedule" />} />
         </ListItem>
-        <ListItem button component={Link} naked href="/events" onClick={props.onClose}>
+        {/**<ListItem button component={Link} naked href="/events" onClick={props.onClose}>
           <ListItemIcon>{<Icon>{"event"}</Icon>}</ListItemIcon>
           <ListItemText primary={<FormattedMessage defaultMessage="Eventos" description="leftMenu: title of events" />} />
         </ListItem>
         <ListItem button component={Link} naked href="/contact" onClick={props.onClose}>
           <ListItemIcon>{<Icon>{"contact_mail"}</Icon>}</ListItemIcon>
           <ListItemText primary={<FormattedMessage defaultMessage="Contacto" description="leftMenu: title of contact" />} />
-        </ListItem>
+        </ListItem>**/}
       </List>
       <Divider />
     </div>

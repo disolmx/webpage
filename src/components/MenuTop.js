@@ -88,10 +88,10 @@ function MenuTop ({ router }) {
             {/**
             <Button color="inherit" component={Link} naked href="/events">
               <FormattedMessage defaultMessage="Eventos" description="MenuTop: title button of: Eventos" />
-            </Button>**/}
+            </Button>
             <Button color="inherit" component={Link} naked href="/contact">
               <FormattedMessage defaultMessage="Contacto" description="MenuTop: title button of: Contacto" />
-            </Button>
+            </Button>**/}
           </Hidden>
 
           {/**auth && (
